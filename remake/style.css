@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --success-color: #2ecc71;
-  --error-color: #e74c3c;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -16,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  font-size: 1rem;
 }
 
 .container {
@@ -27,25 +23,25 @@ body {
 
 h2 {
   text-align: center;
-  margin: 0 0 25px;
-  /* 20 a the bottom */
+  margin: 0 0;
 }
 
 .form {
   padding: 30px 40px;
-  /* 30px for the top and bottom, 40px for the left and right */
+  padding-bottom: 40px;
 }
 
 .form-control {
-  margin-bottom: 10px;
-  padding-bottom: 20px;
+  padding: 10px 0;
   position: relative;
 }
 
 .form-control label {
-  color: gray;
   display: block;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  color: gray;
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 
 .form-control input {
@@ -54,31 +50,38 @@ h2 {
   display: block;
   width: 100%;
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 
 .form-control input:focus {
   outline: 0;
-  border-color: rgb(73, 73, 255);
+  border-color: goldenrod;
 }
 
 .form-control.success input {
-  border-color: var(--success-color);
+  border-color: green;
 }
-/* if form control has class of success in the input/then border color green */
 
 .form-control.error input {
-  border-color: var(--error-color);
+  border-color: orangered;
+}
+
+.form-control.error input:focus {
+  border-color: gray;
 }
 
 /* if form control has class of success in the input/then border color orangy red */
 /* will add later in the javascript */
 
 .form-control small {
-  color: var(--error-color);
+  color: orangered;
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: 20;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
   visibility: hidden;
 }
 
@@ -86,24 +89,15 @@ h2 {
   visibility: visible;
 }
 
-/* visibility hidden is different to display none */
-
 .form button {
   cursor: pointer;
+  width: 100%;
+  margin-top: 35px;
+  display: inline-block;
+  padding: 5px;
   background-color: #3498db;
   border-radius: 4px;
   border: 2px solid #3498db;
-  display: inline-block;
-  font-size: 16px;
   color: white;
-  padding: 8px;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.form button:hover {
-  background-color: white;
-  color: #3498db;
-  border: 2px solid #3498db;
-  font-weight: 600;
+  font-size: 16px;
 }

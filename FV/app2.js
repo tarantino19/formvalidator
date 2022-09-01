@@ -1,5 +1,4 @@
 `use strict`;
-`use strict`;
 
 // VERSION 2
 
@@ -18,11 +17,17 @@ const password2 = document.getElementById("password2");
 function showError(input, message) {
   // input  - the username below the form ... and message is the string "x is required"
   const formControl = input.parentElement; //parent element of the input
-  formControl.className = `form-control error`;
+  formControl.className = `form-control error`; // reassigning this to the classname
   const small = formControl.querySelector("small"); // dont use queryselectorall
   small.innerText = message;
   //to show the actual error, not just "error  message"
 }
+
+//showsuccess
+function showSuccess(input) {
+  const formControl = input.parentElement;
+  formControl.className = `form-control success`;
+} //shows green in the  username input field
 
 //isvalid email function
 function checkEmail(input) {
@@ -37,11 +42,11 @@ function checkEmail(input) {
   }
 }
 
-//showsuccess
-function showSuccess(input) {
-  const formControl = input.parentElement;
-  formControl.className = `form-control success`;
-} //shows green in the  username input field
+// Get field name
+
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+} // for uppercasing, lowercasing cutting text
 
 //CHECK INPUT FIELD FUNCTION
 
@@ -81,12 +86,6 @@ function checkPasswordsMatch(input1, input2) {
     showError(input2, "Passwords do not match");
   }
 }
-
-// Get field name
-
-function getFieldName(input) {
-  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-} // for uppercasing, lowercasing cutting text
 
 // Event listeners DRY
 form.addEventListener("submit", function (e) {
